@@ -93,7 +93,7 @@ html{
     margin-top: 15px;
 }
 
-.checkbox-text{
+.checkbox-text, .target{
     display:none;
 }
 

@@ -33,9 +33,9 @@
             <div class="form-row">
                 <label>
                     <span>First Secondary</span>
-                    <select>
+                    <select id="player-1-secondary-1" data-player="1" data-secondary="1">
                         <option value="headhunter">Headhunter: 1pt for each enemy Character that is destroyed. </option>
-                        <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.
+                        <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.                        
                         </option>
                         <option value="markedForDeath">*Marked for Death: Choose 4 of your opponent’s units with a Power Level of 7+. Earn 1 pt for each of these units destroyed.
                         </option>
@@ -55,9 +55,9 @@
             <div class="form-row">
                 <label>
                     <span>Second Secondary</span>
-                    <select>
+                    <select id="player-1-secondary-2" data-player="1" data-secondary="2">
                         <option value="headhunter">Headhunter: 1pt for each enemy Character that is destroyed. </option>
-                        <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.
+                        <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.                        
                         </option>
                         <option value="markedForDeath">*Marked for Death: Choose 4 of your opponent’s units with a Power Level of 7+. Earn 1 pt for each of these units destroyed.
                         </option>
@@ -77,9 +77,9 @@
             <div class="form-row">
                 <label>
                     <span>Third Secondary</span>
-                    <select>
+                    <select id="player-1-secondary-3" data-player="1" data-secondary="3">
                         <option value="headhunter">Headhunter: 1pt for each enemy Character that is destroyed. </option>
-                        <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.
+                        <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.                        
                         </option>
                         <option value="markedForDeath">*Marked for Death: Choose 4 of your opponent’s units with a Power Level of 7+. Earn 1 pt for each of these units destroyed.
                         </option>
@@ -106,9 +106,10 @@
             <div class="form-row">
                 <label>
                     <span>First Secondary</span>
-                    <select>
+                    <select data-player="2">
                         <option value="headhunter">Headhunter: 1pt for each enemy Character that is destroyed. </option>
                         <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.
+                        <span class="ks-target-player-2"></span>
                         </option>
                         <option value="markedForDeath">*Marked for Death: Choose 4 of your opponent’s units with a Power Level of 7+. Earn 1 pt for each of these units destroyed.
                         </option>
@@ -128,9 +129,10 @@
             <div class="form-row">
                 <label>
                     <span>Second Secondary</span>
-                    <select>
+                    <select data-player="2">
                         <option value="headhunter">Headhunter: 1pt for each enemy Character that is destroyed. </option>
                         <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.
+                        <span class="ks-target-player-2"></span>
                         </option>
                         <option value="markedForDeath">*Marked for Death: Choose 4 of your opponent’s units with a Power Level of 7+. Earn 1 pt for each of these units destroyed.
                         </option>
@@ -150,9 +152,10 @@
             <div class="form-row">
                 <label>
                     <span>Third Secondary</span>
-                    <select>
+                    <select data-player="2">
                         <option value="headhunter">Headhunter: 1pt for each enemy Character that is destroyed. </option>
                         <option value="kingslayer">*Kingslayer: 1 point for every 2 wounds to enemy character non-monster or vehicle and 1 point for every 4 wounds to character with vehicle or monster keyword.
+                        <span class="ks-target-player-2"></span>
                         </option>
                         <option value="markedForDeath">*Marked for Death: Choose 4 of your opponent’s units with a Power Level of 7+. Earn 1 pt for each of these units destroyed.
                         </option>
@@ -172,12 +175,55 @@
             <div class="form-title-row">
                 <h2>Round 1</h2>
             </div>
-
+            <h3>Player 1</h3>
             <div class="form-row">
-                <label>
-                    <span>Checkbox</span>
-                    <input type="checkbox" name="checkbox" checked>
-                </label>
+                <div class="secondary player-1 secondary-1 round-1">
+                    <span>Secondary 1</span><span class="extra-span-player-1 secondary-1 round-1"></span><br>
+                    <label for="checkbox-1" class="label-1">Enemy 1</label>
+                    <input type="checkbox" name="checkbox-1"><br>
+                    <input class="checkbox-text checkbox-text-1" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-2" class="label-2">Enemy 2</label>
+                    <input type="checkbox" name="checkbox-2"><br>
+                    <input class="checkbox-text checkbox-text-2" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-3" class="label-3">Enemy 3</label>
+                    <input type="checkbox" name="checkbox-3"><br>
+                    <input class="checkbox-text checkbox-text-3" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-4" class="label-4">Enemy 4</label>
+                    <input type="checkbox" name="checkbox-4">
+                    <input class="checkbox-text checkbox-text-4" placeholder="Enemy">
+                </div>
+                <br>
+                <div class="secondary player-1 secondary-2 round-1">
+                    <span>Secondary 2</span><span class="extra-span-player-1 secondary-2 round-1"></span><br>
+                    <label for="checkbox-1" class="label-1">Enemy 1</label>
+                    <input type="checkbox" name="checkbox-1"><br>
+                    <input class="checkbox-text checkbox-text-1" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-2" class="label-2">Enemy 2</label>
+                    <input type="checkbox" name="checkbox-2"><br>
+                    <input class="checkbox-text checkbox-text-2" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-3" class="label-3">Enemy 3</label>
+                    <input type="checkbox" name="checkbox-3"><br>
+                    <input class="checkbox-text checkbox-text-3" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-4" class="label-4">Enemy 4</label>
+                    <input type="checkbox" name="checkbox-4">
+                    <input class="checkbox-text checkbox-text-4" placeholder="Enemy">
+                </div>
+                <br>
+                <div class="secondary player-1 secondary-3 round-1">
+                    <span>Secondary 3</span><span class="extra-span-player-1 secondary-3 round-1"></span><br>
+                    <label for="checkbox-1" class="label-1">Enemy 1</label>
+                    <input type="checkbox" name="checkbox-1"><br>
+                    <input class="checkbox-text checkbox-text-1" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-2" class="label-2">Enemy 2</label>
+                    <input type="checkbox" name="checkbox-2"><br>
+                    <input class="checkbox-text checkbox-text-2" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-3" class="label-3">Enemy 3</label>
+                    <input type="checkbox" name="checkbox-3"><br>
+                    <input class="checkbox-text checkbox-text-3" placeholder="Enemy"><br class="checkbox-text">
+                    <label for="checkbox-4" class="label-4">Enemy 4</label>
+                    <input type="checkbox" name="checkbox-4">
+                    <input class="checkbox-text checkbox-text-4" placeholder="Enemy">
+                </div>                
             </div>
 
             <div class="form-row">
@@ -188,6 +234,9 @@
 
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="./form-labels-on-top.js"></script>
 </body>
 
 </html>

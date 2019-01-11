@@ -93,6 +93,10 @@ html{
     margin-top: 15px;
 }
 
+.checkbox-text{
+    display:none;
+}
+
 /*	Making the form responsive. Remove this media query
     if you don't need the form to work on mobile devices. */
 

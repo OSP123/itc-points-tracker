@@ -30,7 +30,7 @@ function requestChoices(value, player, secondary, parent){
             input.attr("type","text");
             div.append("<br>", label, input);
             parent.append(div);
-            $(".kstarget").on("input", function(){kstargetFunction($(this))})
+            $(input).on("input", function(){kstargetFunction($(this))})
             break;
         case "markedForDeath":
             for (var i=1; i<=4; i++){
@@ -45,6 +45,7 @@ function requestChoices(value, player, secondary, parent){
                 input.attr("type","text")
                 div.append("<br>", label, input)
                 parent.append(div)
+                $(input).on("input", function(){deathtargetFunction($(this))})
             }
             break;
         case "bigGameHunter":
@@ -69,11 +70,21 @@ function kstargetFunction(input){
     var player = input.data("player");
     var secondary = input.data("secondary");    
     var value = input.val();
-    console.log(value)
     for (var i=1; i<=3; i++){        
-        var target = $(".target.player-"+player+".secondary-"+secondary+".round-"+i)
-        target.html("Target: "+value);
+        var target = $(".target.player-"+player+".secondary-"+secondary+".round-"+i)        
+        target.text("Target: "+value);
         target.show();
+    }
+}
+
+function deathtargetFunction(input){
+    var player = input.data("player");
+    var secondary = input.data("secondary");
+    var label = input.data("label");
+    var value = input.val();    
+    for (var i=1; i<=3; i++){        
+        var target = $(".secondary.player-"+player+".secondary-"+secondary+".round-"+i)        
+        target.find(".label-"+label).text(value+" destroyed")
     }
 }
 

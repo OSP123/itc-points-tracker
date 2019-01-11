@@ -140,7 +140,7 @@ function updateLabels(value, player, secondary){
             case "butchersBill":
                 labels.forEach(function(element, i){
                     if(element){
-                        element.text("2+ Enemies destoryed");
+                        element.text("2+ Enemies destoyed");
                     }
                 })
                 break;

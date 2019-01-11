@@ -24,10 +24,13 @@ function requestChoices(value, player, secondary, parent){
             var label = $("<label>")
             label.text("Target character")
             var input = $("<input>")
-            input.attr("id","kstarget-player-"+player);
+            input.addClass("kstarget");
+            input.attr("data-player",player);
+            input.attr("data-secondary",secondary);
             input.attr("type","text");
             div.append("<br>", label, input);
             parent.append(div);
+            $(input).on("input", function(){kstargetFunction($(this))})
             break;
         case "markedForDeath":
             for (var i=1; i<=4; i++){
@@ -35,10 +38,14 @@ function requestChoices(value, player, secondary, parent){
                 var label = $("<label>")
                 label.text("Target "+i)
                 var input = $("<input>")
-                input.attr("id","deathtarget-"+i+"-player-"+player)
+                input.addClass("deathtarget")
+                input.attr("data-label", i)
+                input.attr("data-player", player)
+                input.attr("data-secondary", secondary)                
                 input.attr("type","text")
                 div.append("<br>", label, input)
                 parent.append(div)
+                $(input).on("input", function(){deathtargetFunction($(this))})
             }
             break;
         case "bigGameHunter":
@@ -59,14 +66,33 @@ function requestChoices(value, player, secondary, parent){
             break;
     }
 }
+function kstargetFunction(input){    
+    var player = input.data("player");
+    var secondary = input.data("secondary");    
+    var value = input.val();
+    for (var i=1; i<=3; i++){        
+        var target = $(".target.player-"+player+".secondary-"+secondary+".round-"+i)        
+        target.text("Target: "+value);
+        target.show();
+    }
+}
 
-$(".kstarget").on("input", function(){
-})
+function deathtargetFunction(input){
+    var player = input.data("player");
+    var secondary = input.data("secondary");
+    var label = input.data("label");
+    var value = input.val();    
+    for (var i=1; i<=3; i++){        
+        var target = $(".secondary.player-"+player+".secondary-"+secondary+".round-"+i)        
+        target.find(".label-"+label).text(value+" destroyed")
+    }
+}
 
 function updateLabels(value, player, secondary){
     $(".checkbox-text").val("");
     $(".checkbox-text").attr("placeholder","");
     $(".checkbox-text").hide();
+    $(".target.player-"+player+".secondary-"+secondary).hide();
     var labels = new Array(5);
     for (var i=1;i<=3;i++){
         for (var j=1;j<=4;j++){
@@ -140,7 +166,7 @@ function updateLabels(value, player, secondary){
             case "butchersBill":
                 labels.forEach(function(element, i){
                     if(element){
-                        element.text("2+ Enemies destoyed");
+                        element.text("2+ Enemies destroyed");
                     }
                 })
                 break;

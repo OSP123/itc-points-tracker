@@ -1,3 +1,15 @@
+var scores = [0,0];
+
+$(":checkbox").on("change", function(){
+    console.log($(this).data("player"))
+    if (this.checked){
+        scores[parseInt($(this).data("player"))-1]++
+    } else {
+        scores[parseInt($(this).data("player"))-1]--
+    }
+    $("#scores").html("Score: "+scores[0]+" - "+scores[1])
+})
+
 $("select").on("change", function(){
     var player = $(this).data("player");
     var secondary = $(this).data("secondary");
@@ -186,3 +198,11 @@ function updateLabels(value, player, secondary){
         }
     }
 }
+
+$(window).scroll(function() {
+if ($(document).scrollTop() > 600) {
+    $("footer").show("slow");
+} else if ($(document).scrollTop() < 100){
+    $("footer").hide("slow");
+}
+});

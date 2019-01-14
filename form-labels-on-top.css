@@ -2,6 +2,10 @@ html{
     background-color: #f3f3f3;
 }
 
+.main-content{
+    margin-bottom: 80px;
+}
+
 .form-labels-on-top{
     box-sizing: border-box;
     max-width: 475px;
@@ -95,6 +99,15 @@ html{
 
 .checkbox-text, .target{
     display:none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    width: 100%;
+    text-align: center;
+    font: bold 14px sans-serif;
 }
 
 /*	Making the form responsive. Remove this media query

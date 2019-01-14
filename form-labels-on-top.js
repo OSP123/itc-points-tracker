@@ -65,6 +65,32 @@ function requestChoices(value, player, secondary, parent){
         case "titanSlayer":
             break;
         case "reaper":
+            for (var i=1; i<=3; i++){
+                var counter = $("<input>");
+                counter.val("0")
+                counter.attr("type","number");
+                counter.attr("step","1");
+                counter.attr("id","counter-player-"+player+"-round-"+i);
+                counter.css("width","50%")
+                var target = $(".target.player-"+player+".secondary-"+secondary+".round-"+i);
+                target.text("Models destroyed: ");
+                target.append("<br>")
+                target.append(counter);
+                var plus = $("<button>");
+                plus.text("+");
+                plus.addClass("plus");                
+                plus.attr("data-player", player)
+                plus.attr("data-round", i)
+                $(plus).on("click", function(){reaperFunction($(this), "plus")});
+                target.append(plus);                
+                var minus = $("<button>");
+                minus.text("-");
+                minus.addClass("minus");
+                minus.attr("data-player", player)
+                minus.attr("data-round", i)
+                $(minus).on("click", function(){reaperFunction($(this), "minus")});
+                target.append(minus);
+            }
             break;
         case "recon":
             break;
@@ -78,12 +104,30 @@ function requestChoices(value, player, secondary, parent){
             break;
     }
 }
+
+function reaperFunction(input, direction){
+    event.preventDefault();
+    console.log(input)
+    var player = input.data("player")
+    var round = input.data("round")
+    console.log(player)
+    console.log(round)
+    var target = $("#counter-player-"+player+"-round-"+round)
+    var oldval = parseInt(target.val())
+    if (direction == "plus"){
+        newval = oldval + 1;
+    } else {
+        newval = oldval - 1;
+    }
+    target.val(newval)
+}
+
 function kstargetFunction(input){    
     var player = input.data("player");
     var secondary = input.data("secondary");    
     var value = input.val();
     for (var i=1; i<=3; i++){        
-        var target = $(".target.player-"+player+".secondary-"+secondary+".round-"+i)        
+        var target = $(".target.player-"+player+".secondary-"+secondary+".round-"+i);
         target.text("Target: "+value);
         target.show();
     }
@@ -95,7 +139,7 @@ function deathtargetFunction(input){
     var label = input.data("label");
     var value = input.val();    
     for (var i=1; i<=3; i++){        
-        var target = $(".secondary.player-"+player+".secondary-"+secondary+".round-"+i)        
+        var target = $(".secondary.player-"+player+".secondary-"+secondary+".round-"+i);
         target.find(".label-"+label).text(value+" destroyed")
     }
 }
@@ -110,6 +154,7 @@ function updateLabels(value, player, secondary){
         for (var j=1;j<=4;j++){
             labels[j] =  $(".player-"+player+".secondary-"+secondary+".round-"+i).children(".label-"+j)
         }
+        var target = $(".target.player-"+player+".secondary-"+secondary+".round-"+i);
         switch(value){
             case "headhunter":
                 labels.forEach(function(element, i){
@@ -158,6 +203,8 @@ function updateLabels(value, player, secondary){
                         element.text("20 models");                  
                     }
                 })
+                target.show();
+                console.log(target)
                 break;
             case "recon":
                 labels.forEach(function(element, i){

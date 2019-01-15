@@ -21,7 +21,7 @@ $("select").on("change", function(){
 })
 
 function updateSpan(player, secondary, text){
-    for (var i=1; i<=3; i++){        
+    for (var i=1; i<=6; i++){        
         $(".player-"+player+".secondary-"+secondary+".round-"+i).children("span").html(text)
     }
 }
@@ -65,7 +65,7 @@ function requestChoices(value, player, secondary, parent){
         case "titanSlayer":
             break;
         case "reaper":
-            for (var i=1; i<=3; i++){
+            for (var i=1; i<=6; i++){
                 var counter = $("<input>");
                 counter.val("0")
                 counter.attr("type","number");
@@ -126,11 +126,7 @@ function kstargetFunction(input){
     var player = input.data("player");
     var secondary = input.data("secondary");    
     var value = input.val();
-    for (var i=1; i<=3; i++){        
-        var target = $(".target.player-"+player+".secondary-"+secondary+".round-"+i);
-        target.text("Target: "+value);
         target.show();
-    }
 }
 
 function deathtargetFunction(input){
@@ -138,7 +134,7 @@ function deathtargetFunction(input){
     var secondary = input.data("secondary");
     var label = input.data("label");
     var value = input.val();    
-    for (var i=1; i<=3; i++){        
+    for (var i=1; i<=6; i++){        
         var target = $(".secondary.player-"+player+".secondary-"+secondary+".round-"+i);
         target.find(".label-"+label).text(value+" destroyed")
     }
@@ -150,7 +146,7 @@ function updateLabels(value, player, secondary){
     $(".checkbox-text").hide();
     $(".target.player-"+player+".secondary-"+secondary).hide();
     var labels = new Array(5);
-    for (var i=1;i<=3;i++){
+    for (var i=1;i<=6;i++){
         for (var j=1;j<=4;j++){
             labels[j] =  $(".player-"+player+".secondary-"+secondary+".round-"+i).children(".label-"+j)
         }
@@ -252,7 +248,6 @@ if ($(document).scrollTop() > 600) {
 } else if ($(document).scrollTop() < 100){
     $("footer").hide("slow");
 }
-
 });
 
 $(".toggle").on("click", function(){

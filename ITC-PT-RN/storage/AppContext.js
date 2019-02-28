@@ -5,33 +5,40 @@ export const AppConsumer = AppContext.Consumer;
 
 export default class AppProvider extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       playerOne: {
-        name: ""
+        name: "",
+        points: undefined,
+        firstSecondary: "",
+        secondSecondary: "",
+        thirdSecondary: "",
       },
       playerTwo: {
-        name: ""
-      },
-
+        name: "",
+        points: undefined,
+        firstSecondary: "",
+        secondSecondary: "",
+        thirdSecondary: "",
+      }
     }
-  }
-  
 
-  setName = (newName) => {
-    const playerOne = {...this.state.playerOne};
-    playerOne.name = newName
-    this.setState({ playerOne }, (
-      console.log(this.state)
-    ))
   }
+
+
+  setSecondaries = (setUp) => {
+    let state = { ...this.state };
+    state = setUp;
+    this.setState({ state });
+  };
+
 
   render() {
     return (
       <AppContext.Provider value={{
         state: this.state,
-        setName: this.setName,
+        setSecondaries: this.setSecondaries,
       }}>
         {this.props.children}
       </AppContext.Provider>
